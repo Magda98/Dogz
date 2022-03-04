@@ -4,9 +4,10 @@ import { useDogzStore } from "../stores/dogz";
 import ImageComponent from "../components/ImageComponent.vue";
 
 const dogz = useDogzStore();
-const breedValue = ref("");
+const breedValue = ref(dogz.selectBreed);
 
 watch(breedValue, () => {
+  dogz.selectBreed = breedValue.value;
   dogz.getBreedsImages(breedValue.value);
 });
 
@@ -50,7 +51,7 @@ onMounted(() => {
       <ImageComponent
         v-for="(item, index) in dogz.breedImageList"
         :key="index"
-        :imageSrc="item"
+        :item="item"
       ></ImageComponent>
     </div>
   </div>
@@ -63,6 +64,8 @@ onMounted(() => {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
 .breed-selection {
@@ -73,8 +76,6 @@ onMounted(() => {
   margin: 30px 0;
 }
 
-$glass: rgba(255, 255, 255, 0.2);
-$glass-icon: rgba(255, 255, 255, 0.3);
 select {
   appearance: none;
   border: 0;

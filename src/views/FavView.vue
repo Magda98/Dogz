@@ -13,7 +13,7 @@ const dogz = useDogzStore();
       <ImageComponent
         v-for="(item, index) in dogz.favList"
         :key="index"
-        :imageSrc="item"
+        :item="item"
       ></ImageComponent>
     </div>
   </div>
@@ -21,4 +21,12 @@ const dogz = useDogzStore();
 
 <style scoped lang="scss">
 @import "@/assets/styles/varibles.scss";
+
+.image-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
 </style>

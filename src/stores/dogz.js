@@ -6,6 +6,7 @@ export const useDogzStore = defineStore("dogz", {
     breedsList: [],
     breedImageList: [],
     favList: [],
+    selectBreed: "",
   }),
 
   getters: {},
@@ -24,21 +25,34 @@ export const useDogzStore = defineStore("dogz", {
     async getBreedsImages(breed) {
       try {
         const response = await api.getBreedsImages(breed);
-        console.log(response);
-        this.breedImageList = response.message;
+        const dogArray = response.message.map((item) => {
+          const isInFav =
+            this.favList.find((favItem) => favItem.url === item) === undefined
+              ? false
+              : true;
+          const dog = {
+            url: item,
+            fav: isInFav,
+          };
+          return dog;
+        });
+        this.breedImageList = dogArray;
       } catch {
         console.log("Error");
       }
     },
 
-    addToFav(url) {
-      this.favList.push(url);
+    addToFav(dog) {
+      if (!dog.fav) {
+        dog.fav = true;
+        this.favList.push(dog);
+      }
     },
 
-    removeFromFav(url) {
-      this.favList.map((val) => {
-        url !== val;
-      });
+    removeFromFav(dog) {
+      dog.fav = false;
+      const result = this.favList.filter((item) => item.url !== dog.url);
+      this.favList = result;
     },
   },
 
