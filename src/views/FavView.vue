@@ -28,5 +28,15 @@ const dogz = useDogzStore();
   gap: 25px;
   padding: 10px 0;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 1600px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

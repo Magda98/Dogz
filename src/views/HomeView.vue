@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <div>
     <h1>Happy dogz website!</h1>
-    <p>
+    <p class="text">
       Doggo ipsum heck heckin angery woofer lotsa pats much ruin diet bork
       shooberino, long water shoob heckin good boys and girls ruff mlem. Super
       chub clouds long doggo wow such tempt blep smol borking doggo with a long
@@ -60,12 +60,25 @@ onMounted(() => {
 <style scoped lang="scss">
 @import "@/assets/styles/varibles.scss";
 
+.text {
+  text-align: justify;
+}
 .image-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
   padding: 10px 0;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 1600px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .breed-selection {

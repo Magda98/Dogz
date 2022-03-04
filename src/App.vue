@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from "vue-router";
 @import "@/assets/styles/base.scss";
 
 .container {
-  max-width: 60%;
+  max-width: 70%;
   margin: 100px auto auto auto;
 
   @media only screen and (max-width: 1200px) {
@@ -27,12 +27,11 @@ import { RouterLink, RouterView } from "vue-router";
 }
 
 .header {
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: $text;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 9;
 
   .nav {
     max-width: 60%;
@@ -47,9 +46,10 @@ import { RouterLink, RouterView } from "vue-router";
       letter-spacing: 2px;
       font-size: 13px;
       font-weight: 500;
+      color: #fff;
 
       &:hover {
-        color: $primary;
+        color: #fff;
       }
 
       &::after {
@@ -66,7 +66,7 @@ import { RouterLink, RouterView } from "vue-router";
 
       &.router-link-exact-active {
         &::after {
-          background-color: $primary;
+          background-color: #fff;
         }
       }
     }

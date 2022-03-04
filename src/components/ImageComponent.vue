@@ -30,21 +30,19 @@ defineProps({
 @import "@/assets/styles/varibles.scss";
 .item {
   padding: 20px 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
+  border-radius: 5px;
+  border: 2px solid rgba($primary, 0.2);
 
   img {
     object-fit: cover;
-    width: 250px;
-    height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
   }
   .actions {
@@ -55,7 +53,7 @@ defineProps({
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #fff;
+      background-color: transparent;
       border: none;
       padding: 10px 10px;
       border-radius: 5px;
