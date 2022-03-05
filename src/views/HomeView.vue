@@ -1,18 +1,37 @@
 <script setup>
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref, watch, onBeforeUnmount } from "vue";
 import { useDogzStore } from "../stores/dogz";
 import ImageComponent from "../components/ImageComponent.vue";
+import debounce from "lodash/debounce";
 
 const dogz = useDogzStore();
 const breedValue = ref(dogz.selectBreed);
+const getDogzOnScrollDebounced = ref({});
 
 watch(breedValue, () => {
   dogz.selectBreed = breedValue.value;
   dogz.getBreedsImages(breedValue.value);
 });
 
+function getDogzOnScroll() {
+  let bottomOfWindow =
+    document.documentElement.scrollTop + window.innerHeight ===
+    document.documentElement.offsetHeight;
+
+  if (bottomOfWindow) {
+    dogz.getBreedsImagesScroll(breedValue.value);
+  }
+}
+
 onMounted(() => {
   dogz.getAllBreeds();
+
+  getDogzOnScrollDebounced.value = debounce(getDogzOnScroll, 100);
+  window.addEventListener("scroll", getDogzOnScrollDebounced.value);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", getDogzOnScrollDebounced.value);
 });
 </script>
 

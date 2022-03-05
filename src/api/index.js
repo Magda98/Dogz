@@ -11,7 +11,7 @@ const api = {
   },
 
   async getBreedsImages(breed) {
-    const response = await apiClient.get(`breed/${breed}/images`);
+    const response = await apiClient.get(`breed/${breed}/images/random/40`);
     return response.data;
   },
 };

@@ -36,7 +36,29 @@ export const useDogzStore = defineStore("dogz", {
           };
           return dog;
         });
+
         this.breedImageList = dogArray;
+      } catch {
+        console.log("Error");
+      }
+    },
+
+    async getBreedsImagesScroll(breed) {
+      try {
+        const response = await api.getBreedsImages(breed);
+        const dogArray = response.message.map((item) => {
+          const isInFav =
+            this.favList.find((favItem) => favItem.url === item) === undefined
+              ? false
+              : true;
+          const dog = {
+            url: item,
+            fav: isInFav,
+          };
+          return dog;
+        });
+        console.log(dogArray);
+        this.breedImageList.push(...dogArray);
       } catch {
         console.log("Error");
       }

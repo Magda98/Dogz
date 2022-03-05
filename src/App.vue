@@ -47,9 +47,10 @@ import { RouterLink, RouterView } from "vue-router";
       font-size: 13px;
       font-weight: 500;
       color: #fff;
+      transition: background-color 0.3s;
 
       &:hover {
-        color: #fff;
+        background-color: rgba(#fff, 0.2);
       }
 
       &::after {
@@ -77,19 +78,6 @@ import { RouterLink, RouterView } from "vue-router";
       a {
         font-size: 12px;
         padding: 20px 30px;
-      }
-    }
-
-    @media only screen and (max-width: 768px) {
-      max-width: 95%;
-
-      a {
-        font-size: 10px;
-        padding: 20px 10px;
-        &::after {
-          width: 80%;
-          left: 10%;
-        }
       }
     }
   }
