@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/",
+      path: "/fav",
       name: "fav",
       component: FavView,
     },
