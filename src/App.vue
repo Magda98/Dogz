@@ -34,9 +34,11 @@ import { RouterLink, RouterView } from "vue-router";
   z-index: 9;
 
   .nav {
-    max-width: 60%;
+    max-width: 70%;
     margin: auto;
-    padding: 30px 0;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0;
 
     a {
       text-decoration: none;
@@ -74,10 +76,14 @@ import { RouterLink, RouterView } from "vue-router";
 
     @media only screen and (max-width: 1200px) {
       max-width: 90%;
-
+      padding: 5px 0;
       a {
         font-size: 12px;
         padding: 20px 30px;
+
+        &::after {
+          bottom: 12px;
+        }
       }
     }
   }
