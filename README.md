@@ -1,35 +1,8 @@
 # Dogz
 
-This template should help get you started developing with Vue 3 in Vite.
+Simple dogs-images app using Dog API (https://dog.ceo/dog-api/). App was created using Vue 3 (Composition API), pinia store, pinia-plugin-persistedstate (for saving data in local storage)
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+![image](https://user-images.githubusercontent.com/33430525/156877432-3f09a0e7-3884-4786-b69d-34869667741b.png)
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+![image](https://user-images.githubusercontent.com/33430525/156877479-5b27236e-c5f3-4914-a62f-46a5090db961.png)
